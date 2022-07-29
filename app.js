@@ -50,5 +50,5 @@ const cardArray = [
  
 ]
 
-cardArray.sort(() => 0.5 - Math.round())
+cardArray.sort(() => 0.5 - Math.random()) // sort the array randomly
 console.log(cardArray)
