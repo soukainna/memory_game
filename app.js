@@ -59,9 +59,15 @@ function creatBoard () {
         const card = document.createElement('img')
         card.setAttribute('src', 'images/blank.png')
         card.setAttribute('card-id', i)
+        card.addEventListener('click', flipCard)
         griddisplay.append(card)
         console.log(card, i);
     }
 }
 
 creatBoard()
+
+function flipCard() {
+    const cardId = this.getAttribute('card-id')
+    console.log('clicked', cardId)
+}
