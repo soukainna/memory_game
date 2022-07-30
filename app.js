@@ -87,7 +87,7 @@ function checkMatch(){
 
     if (cardwon.length == cardArray/2)
     {
-        result.innerHTML = 'Congratulations you Found them all'
+        result.textContent = 'Congratulations you Found them all'
     }
 
 }
