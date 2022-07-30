@@ -51,17 +51,34 @@ const cardArray = [
 ]
 
 cardArray.sort(() => 0.5 - Math.random()) // sort the array randomly
-const cardchosen = []
-const cardchosenid = []
+let cardchosen = []
+let cardchosenid = []
+const cardwon = []
 const griddisplay = document.querySelector('#grid') // chercher dans le html l'id grid
 
 function checkMatch(){
     const cards = document.querySelectorAll('img')
+    const optionone = cardchosenid[0]
+    const optiontwo = cardchosenid[1]
+
+    if(optionone == optiontwo)
+    {
+        alert('You clicked on the same card')
+    }
+
     if (cardchosen[0] == cardchosen[1]){
         alert('you found a match !')
-        cards[cardchosenid[0]].setAttribute('src', 'images/white.png')
-        cards[cardchosenid[1]].setAttribute('src', 'images/white.png')
+        cards[optionone].setAttribute('src', 'images/white.png')
+        cards[optiontwo].setAttribute('src', 'images/white.png')
+        cards[optionone].removeEventListener('click', flipCard)
+        cards[optiontwo].removeEventListener('click', flipCard)
+        cardwon.push(cardchosen)
+    }else{
+        cards[optionone].setAttribute('src', 'images/blank.png')
+        cards[optiontwo].setAttribute('src', 'images/blank.png')
     }
+    cardchosen = []
+    cardchosenid = []
 
 }
 
