@@ -51,4 +51,17 @@ const cardArray = [
 ]
 
 cardArray.sort(() => 0.5 - Math.random()) // sort the array randomly
-console.log(cardArray)
+
+const griddisplay = document.querySelector('#grid') // chercher dans le html l'id grid
+
+function creatBoard () {
+    for(let i = 0; i < cardArray.length; i++){
+        const card = document.createElement('img')
+        card.setAttribute('src', 'images/blank.png')
+        card.setAttribute('card-id', i)
+        griddisplay.append(card)
+        console.log(card, i);
+    }
+}
+
+creatBoard()
