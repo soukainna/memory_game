@@ -55,6 +55,7 @@ let cardchosen = []
 let cardchosenid = []
 const cardwon = []
 const griddisplay = document.querySelector('#grid') // chercher dans le html l'id grid
+const result = document.querySelector('#result')
 
 function checkMatch(){
     const cards = document.querySelectorAll('img')
@@ -63,10 +64,12 @@ function checkMatch(){
 
     if(optionone == optiontwo)
     {
+        cards[optionone].setAttribute('src', 'images/blank.png')
+        cards[optiontwo].setAttribute('src', 'images/blank.png')
         alert('You clicked on the same card')
     }
 
-    if (cardchosen[0] == cardchosen[1]){
+    else if (cardchosen[0] == cardchosen[1]){
         alert('you found a match !')
         cards[optionone].setAttribute('src', 'images/white.png')
         cards[optiontwo].setAttribute('src', 'images/white.png')
@@ -76,9 +79,16 @@ function checkMatch(){
     }else{
         cards[optionone].setAttribute('src', 'images/blank.png')
         cards[optiontwo].setAttribute('src', 'images/blank.png')
+        alert('Sorry try again')
     }
+    result.textContent = cardwon.length
     cardchosen = []
     cardchosenid = []
+
+    if (cardwon.length == cardArray/2)
+    {
+        result.innerHTML = 'Congratulations you Found them all'
+    }
 
 }
 
